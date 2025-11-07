@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            // Clear previous errors
+            let errorSpans = document.querySelectorAll(".error");
+            errorSpans.forEach(span => span.innerHTML = "");
+
+            let isValid = true;
+
+            let fullname = document.forms["myForm"]["fname"].value.trim();
+            let username = document.forms["myForm"]["username"].value.trim();
+            let password = document.forms["myForm"]["password"].value;
+            let confirmPassword = document.forms["myForm"]["confirmPassword"].value;
+            let email = document.forms["myForm"]["email"].value.trim();
+            let mobile = document.forms["myForm"]["mobile"].value.trim();
+            let dob = document.forms["myForm"]["dob"].value;
+            let gender = document.forms["myForm"]["gender"].value;
+            let address = document.forms["myForm"]["address"].value.trim();
+            let pincode = document.forms["myForm"]["pincode"].value.trim();
+
+            // Name mandatory
+            if (fullname === "") {
+                document.getElementById("nameError").innerHTML = "Name is Required";
+                isValid = false;
+            }
+
+            // Username validation
+            let userRegex = /^[A-Za-z]+$/;
+            if (!userRegex.test(username)) {
+                document.getElementById("usernameError").innerHTML = "Username must contain only letters";
+                isValid = false;
+            }
+
+            // Password validation
+            let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
+            if (!passRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 8 characters, include one uppercase, one lowercase, and one special character";
+                isValid = false;
+            }
+
+            // Confirm password
+            if (password !== confirmPassword || confirmPassword === "") {
+                document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match";
+                isValid = false;
+            }
+
+            // Email validation
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address";
+                isValid = false;
+            }
+
+            // Mobile validation
+            let mobileRegex = /^[0-9]{10}$/;
+            if (!mobileRegex.test(mobile)) {
+                document.getElementById("mobileError").innerHTML = "Mobile number must be exactly 10 digits";
+                isValid = false;
+            }
+
+            // Date of Birth validation
+            if (dob === "") {
+                document.getElementById("dobError").innerHTML = "Date of Birth is Required";
+                isValid = false;
+            } else {
+                let today = new Date();
+                let birthDate = new Date(dob);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                let monthDiff = today.getMonth() - birthDate.getMonth();
+
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+
+                if (age < 18) {
+                    document.getElementById("dobError").innerHTML = "You must be at least 18 years old";
+                    isValid = false;
+                }
+            }
+
+            // Gender validation
+            if (gender === "") {
+                document.getElementById("genderError").innerHTML = "Please select your gender";
+                isValid = false;
+            }
+
+            // Address validation
+            if (address.length < 10) {
+                document.getElementById("addressError").innerHTML = "Address must be at least 10 characters long";
+                isValid = false;
+            }
+
+            // Pincode validation
+            let pincodeRegex = /^[0-9]{6}$/;
+            if (!pincodeRegex.test(pincode)) {
+                document.getElementById("pincodeError").innerHTML = "Pincode must be exactly 6 digits";
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Form submitted successfully, Thanks for Registering with us!!");
+                document.forms["myForm"].reset(); // optional: reset form after success
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form name="myForm" onsubmit="validateForm(event)">
+        <label>Full Name: </label>
+        <input type="text" name="fname">
+        <span id="nameError" class="error"></span><br><br>
+
+        <label>Username: </label>
+        <input type="text" name="username">
+        <span id="usernameError" class="error"></span><br><br>
+
+        <label>Password: </label>
+        <input type="password" name="password">
+        <span id="passwordError" class="error"></span><br><br>
+
+        <label>Confirm Password: </label>
+        <input type="password" name="confirmPassword">
+        <span id="confirmPasswordError" class="error"></span><br><br>
+
+        <label>Email: </label>
+        <input type="text" name="email">
+        <span id="emailError" class="error"></span><br><br>
+
+        <label>Mobile: </label>
+        <input type="text" name="mobile">
+        <span id="mobileError" class="error"></span><br><br>
+
+        <label>Date of Birth: </label>
+        <input type="date" name="dob">
+        <span id="dobError" class="error"></span><br><br>
+
+        <label>Gender: </label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <span id="genderError" class="error"></span><br><br>
+
+        <label>Address: </label>
+        <textarea name="address"></textarea>
+        <span id="addressError" class="error"></span><br><br>
+
+        <label>Pincode: </label>
+        <input type="text" name="pincode">
+        <span id="pincodeError" class="error"></span><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

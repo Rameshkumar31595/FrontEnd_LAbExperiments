@@ -1,0 +1,11 @@
+#To connect Vs code to Github account
+
+git init
+git config-- global user.name 'Rameshkumar31595'
+git config-- global user.email '2400031595@kluniversity.in'
+git add .                               #{TO add all the files we use (.) or else we will use specific file name instead of (.)}
+
+git commit -m 'done'
+git remote add origin https://github.com/Rameshkumar31595/FND205.git
+git remote remove origin 
+

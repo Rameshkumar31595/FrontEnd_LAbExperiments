@@ -1,0 +1,61 @@
+navbardemo.html                                                                                                                                                                                                <!DOCTYPE html>
+<html lang="en">
+<head>                                                                            <!--inline,internal,external-->
+                                                                                        <!--inline >> internal>>external (Priority)-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Demo</title>
+    <style>
+        *{
+            border-radius: 10px;
+            
+        }
+        .navbar{
+            display:flex;
+            background-color: rgb(255, 240, 240);
+            justify-content: space-between;
+            padding:10px 10px;
+        }
+        .navbar .logo
+        {
+            flex:1;
+        }
+        .navbar .logo img{
+            height:40px;
+
+        }
+        .navbar .title{
+            flex:2;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color:black;
+        }
+
+        .navbar.links{
+            flex:1;
+        }
+        .navbar .links a{
+            color:black;
+            margin-left:20px;
+            font-size:10px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="C:\Users\HP\OneDrive\Desktop\Front and Development\Navbardemo(project_1)\klu.jpg">
+        </div>
+        <div class="title">
+            Learning Managment System
+        </div>
+        <div class="links">
+            <a href="https://www.kluniversity.in/">Home</a>
+            <a href="fedf.pdf">About us</a>
+            <a href="https://lms.kluniversity.in/login/index.php">SignIn/ Signup</a>
+        </div>
+    </nav>
+</body>
+</html>
