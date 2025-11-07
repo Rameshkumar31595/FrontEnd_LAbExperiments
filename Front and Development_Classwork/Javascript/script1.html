@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Alert</title>
+</head>
+<body>
+    <button onclick="alert('Hello! This is an alert box.')">Show Alert</button>
+    <hr>
+    <button onclick="alert('Why did you click me? ')">Click me</button>
+    <hr>
+    <button onclick="alert('Tina ledhu peduthava ?')">Tinnava</button>
+    <hr>
+    <br>
+    <button onclick="deletedata()">Delete item</button>
+    <script>
+        function deletedata()
+        {
+            const decision=confirm("Are you sure brooo?");
+            if (decision)
+        {
+            alert("Item deleted");
+        }
+            else{
+            alert("Deletion revoked");
+        }
+        }
+    </script>
+    <hr><br>
+    <button onclick="who()">Access</button>
+    <script>
+        function who()
+        {
+            const deci=prompt("Owner wants to know your name.Please enter");
+            if(deci)
+        {
+            alert("Welcome "+deci+",Enjoy the website ");
+        }
+        else
+        {
+            alert("Bro , be serious please enter the name ");
+        }
+        }
+    </script>
+    
+</body>
+</html>

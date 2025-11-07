@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+ <script>
+    let numbers = [10, 20, 30, 40, 50];
+    document.write(typeof numbers);
+    document.write("<h2>1. Standard for Loop</h2>");
+    for (let i = 0; i < numbers.length; i++) {
+        document.write(numbers[i] + "<br>");
+    }
+    //2. for ..in loop (iterates over indexes/keys)
+    document.write("<h2>2.for..in loop</h2>");
+    for(let index in numbers){
+        document.write("Index" +index +"="+numbers[index]+"<br>");
+    }
+    document.write("<br>");
+
+    // for..of loop (iterates over values)
+document.write("<h2>3. for..of loop</h2>");
+for (let value of numbers) {
+    document.write("Value=" + value + "<br>");
+}
+document.write("<br>");
+// forEach() method (array-specific)
+document.write("<h2>4. forEach() method</h2>");
+numbers.forEach(function(value,index) {
+    document.write("Index " + index+"="+value + "<br>");
+});
+document.write("<br>");
+
+// Example with Objects
+let student = {
+    name: "John",
+    age: 21,
+    course: "Computer Science"
+};
+
+document.write("<h2>Example with Objects</h2>");
+for (let key in student) {
+    document.write(key + " = " + student[key] + "<br>");
+}
+document.write("<br>");
+
+// for..of works on iterable objects like arrays, strings, maps, and sets
+document.write("<h2>for..of with a String</h2>");
+let str = "HELLO";
+for (let char of str) {
+    document.write("Character: " + char + "<br>");
+}
+document.write("<br>");
+
+</script>
+
+
+
+    
+</body>
+
+

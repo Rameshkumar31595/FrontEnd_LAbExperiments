@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <form name="myform" onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="age"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      let username = document.forms["myform"]["username"].value;
+      let email = document.forms["myform"]["email"].value;
+      let password = document.forms["myform"]["password"].value;
+      let age = document.forms["myform"]["age"].value;
+
+      // Username check
+      if (username === "") {
+        alert("Username must be filled out");
+        return false;
+      }
+
+      // Email check (basic pattern)
+      let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === "" || !emailPattern.test(email)) {
+        alert("Please enter a valid email address");
+        return false;
+      }
+
+      // Password check
+      if (password === "") {
+        alert("Password must be filled out");
+        return false;
+      }
+
+      // Age check
+      if (age === "" || isNaN(age) || Number(age) <= 0) {
+        alert("Please enter a valid age greater than 0");
+        return false;
+      }
+
+      return true; // all validations passed
+    }
+  </script>
+</body>
+</html>
