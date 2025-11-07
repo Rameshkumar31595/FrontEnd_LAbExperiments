@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5 - Registration Form</title>
+  <link rel="stylesheet" href="week5.css">
+</head>
+<body>
+  <h1>Registration Form</h1>
+  
+  <form id="registerForm">
+    <!-- Full Name -->
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
+    <small class="error"></small>
+
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+    <small class="error"></small>
+
+    <!-- Password -->
+    <label for="password">Password</label>
+    <input type="password" id="password" required>
+    <small class="error"></small>
+
+    <!-- Phone -->
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" required>
+    <small class="error"></small>
+
+    <!-- Submit -->
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="week5.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* General page style */
+body {
+  font-family: Arial, sans-serif;
+  background: #eef3f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* App container */
+#weatherApp {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 380px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative; /* ensures runaway button stays inside */
+  overflow: hidden;   /* prevents button from escaping */
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Input + button container */
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  position: relative; /* for button repositioning */
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Button styling */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #4CAF50;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  position: relative; /* default */
+}
+button:hover {
+  background: #45a049;
+}
+
+/* Weather result box */
+#weatherResult {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Error message */
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
