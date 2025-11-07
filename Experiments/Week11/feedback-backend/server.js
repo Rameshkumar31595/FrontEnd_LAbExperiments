@@ -8,10 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Replace <password> with your real password
-mongoose
-  .connect(
-    "mongodb+srv://2400031595:Rameshkumar2025@cluster0.kocgubf.mongodb.net/feedbackDB"
-  )
+mongoose.connect(process.env.MONGO_URI)
+
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.log("❌ MongoDB Error:", err));
 
